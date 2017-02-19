@@ -279,8 +279,8 @@ def card_issue(provider, args):
         return
 
     change_address = change(utxo)
-    issue["amounts"] = [float(i) for i in issue["amounts"]]
-    ct = pa.CardTransfer(deck, issue["receivers"], issue["amounts"])
+    issue["amounts"] = [float(i) for i in issue["amount"]]
+    ct = pa.CardTransfer(deck, issue["receivers"], issue["amount"])
     raw_ct = hexlify(pa.card_issue(deck, ct, utxo,
                                    change_address,
                                    Settings.prod)
