@@ -230,7 +230,7 @@ def new_deck(provider, deck):
     '''
 
     deck = json.loads(deck)
-    deck["network"] = Settings.network
+    deck["network"] = provider.network
     deck["production"] = Settings.production
     utxo = provider.select_inputs(0.02) ## we need 0.02 PPC
     change_address = change(utxo)
